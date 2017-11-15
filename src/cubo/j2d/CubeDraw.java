@@ -67,34 +67,34 @@ public class CubeDraw extends Demo {
     private FPSCounter fps;
     private float textScaleFactor;
 
-    public static void main(String[] args) {
-        Frame frame = new Frame("Text Cube");
-        frame.setLayout(new BorderLayout());
-
-        GLCanvas canvas = new GLCanvas();
-        final CubeDraw demo = new CubeDraw();
-
-        canvas.addGLEventListener(demo);
-        frame.add(canvas, BorderLayout.CENTER);
-
-        frame.setSize(512, 512);
-        final Animator animator = new Animator(canvas);
-        frame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                // Run this on another thread than the AWT event queue to
-                // make sure the call to Animator.stop() completes before
-                // exiting
-                new Thread(new Runnable() {
-                    public void run() {
-                        animator.stop();
-                        System.exit(0);
-                    }
-                }).start();
-            }
-        });
-        frame.show();
-        animator.start();
-    }
+//    public static void main(String[] args) {
+//        Frame frame = new Frame("Text Cube");
+//        frame.setLayout(new BorderLayout());
+//
+//        GLCanvas canvas = new GLCanvas();
+//        final CubeDraw demo = new CubeDraw();
+//
+//        canvas.addGLEventListener(demo);
+//        frame.add(canvas, BorderLayout.CENTER);
+//
+//        frame.setSize(512, 512);
+//        final Animator animator = new Animator(canvas);
+//        frame.addWindowListener(new WindowAdapter() {
+//            public void windowClosing(WindowEvent e) {
+//                // Run this on another thread than the AWT event queue to
+//                // make sure the call to Animator.stop() completes before
+//                // exiting
+//                new Thread(new Runnable() {
+//                    public void run() {
+//                        animator.stop();
+//                        System.exit(0);
+//                    }
+//                }).start();
+//            }
+//        });
+//        frame.show();
+//        animator.start();
+//    }
 
     public void init(GLAutoDrawable drawable) {
         renderer = new TextRenderer(new Font("SansSerif", Font.PLAIN, 72));
@@ -132,26 +132,41 @@ public class CubeDraw extends Demo {
         // Top face
         gl.glPushMatrix();
         gl.glRotatef(-90, 1, 0, 0);
-//    drawFace(gl, 1.0f, 0.2f, 0.2f, 0.8f, "");
-        gl.glPopMatrix();
+        if (MenuPrincipal.facetop) {
+            drawFace(gl, 1.0f, 0.2f, 0.2f, 0.8f, "");
+            gl.glPopMatrix();
         // Front face
-        drawFace(gl, 1.0f, 0.8f, 0.2f, 0.2f, "");
+        }
+        if (MenuPrincipal.facefront) {
+            drawFace(gl, 1.0f, 0.8f, 0.2f, 0.2f, "");
+        }
         // Right face
         gl.glPushMatrix();
         gl.glRotatef(90, 0, 1, 0);
-//    drawFace(gl, 1.0f, 0.2f, 0.8f, 0.2f, "");
-        // Back face    
+        if (MenuPrincipal.faceright) {
+            drawFace(gl, 1.0f, 0.2f, 0.8f, 0.2f, "");
+          
+        }
         gl.glRotatef(90, 0, 1, 0);
-        drawFace(gl, 1.0f, 0.8f, 0.8f, 0.2f, "");
-        // Left face    
+        if (MenuPrincipal.faceback) {
+            drawFace(gl, 1.0f, 0.8f, 0.8f, 0.2f, "");
+            // Back face  
+        }
         gl.glRotatef(90, 0, 1, 0);
-        drawFace(gl, 1.0f, 0.2f, 0.8f, 0.8f, "");
+        if (MenuPrincipal.faceleft) {
+            drawFace(gl, 1.0f, 0.2f, 0.8f, 0.8f, "");
+                        // Left face  
+
+        }
         gl.glPopMatrix();
         // Bottom face
         gl.glPushMatrix();
         gl.glRotatef(90, 1, 0, 0);
-        drawFace(gl, 1.0f, 0.8f, 0.2f, 0.8f, "");
-        gl.glPopMatrix();
+        if (MenuPrincipal.facebottom) {
+
+           drawFace(gl, 1.0f, 0.8f, 0.2f, 0.8f, "");
+        }
+            gl.glPopMatrix();
 
         fps.draw();
 

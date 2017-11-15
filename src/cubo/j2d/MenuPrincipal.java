@@ -5,6 +5,13 @@
  */
 package cubo.j2d;
 
+import com.sun.opengl.util.Animator;
+import java.awt.BorderLayout;
+import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.media.opengl.GLCanvas;
+
 /**
  *
  * @author claucio
@@ -14,8 +21,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form MenuPrincipal
      */
+  
+    
     public MenuPrincipal() {
         initComponents();
+        this.jckTop.setSelected(this.facetop);
+        this.jckfront.setSelected(this.facefront);
+        this.jckbottom.setSelected(this.facebottom);
+        this.jckbehind.setSelected(this.faceback);
+        this.jckleft.setSelected(this.faceleft);
+        this.jckright.setSelected(this.faceright);
+
+        
     }
 
     /**
@@ -27,67 +44,63 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        painelDisplay = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
+        jckTop = new javax.swing.JCheckBox();
+        jckfront = new javax.swing.JCheckBox();
+        jckbehind = new javax.swing.JCheckBox();
+        jckleft = new javax.swing.JCheckBox();
+        jckbottom = new javax.swing.JCheckBox();
+        jckright = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jbtnPlay = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(150, 150, 150));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
+        painelDisplay.setBackground(new java.awt.Color(150, 150, 150));
+        painelDisplay.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faces", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Liberation Sans", 0, 14))); // NOI18N
 
-        jCheckBox1.setText("Topo");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jckTop.setText("Topo");
+        jckTop.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jckTopStateChanged(evt);
+            }
+        });
+        jckTop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jckTopActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Frente");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        jckfront.setText("Frente");
+        jckfront.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                jckfrontActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("Detrás");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        jckbehind.setText("Detrás");
+        jckbehind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                jckbehindActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("Esquerda");
+        jckleft.setText("Esquerda");
 
-        jCheckBox7.setText("Debaixo");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        jckbottom.setText("Debaixo");
+        jckbottom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                jckbottomActionPerformed(evt);
             }
         });
 
-        jCheckBox8.setText("Direita");
+        jckright.setText("Direita");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,32 +108,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jckTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jCheckBox8)
+                        .addComponent(jckright)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox7))
+                    .addComponent(jckfront)
+                    .addComponent(jckbottom))
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox3)
+                .addComponent(jckbehind)
                 .addGap(61, 61, 61)
-                .addComponent(jCheckBox4)
+                .addComponent(jckleft)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                    .addComponent(jckTop)
+                    .addComponent(jckfront)
+                    .addComponent(jckbehind)
+                    .addComponent(jckleft))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox8)))
+                    .addComponent(jckbottom)
+                    .addComponent(jckright)))
         );
 
         jLabel1.setText("TRANSFORMAÇÕES COM O CUBO");
@@ -129,22 +142,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(221, 221, 221)
                 .addComponent(jLabel1)
-                .addGap(153, 153, 153))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Atalhos"));
 
-        jButton1.setText("Play");
+        jbtnPlay.setBackground(new java.awt.Color(1, 164, 67));
+        jbtnPlay.setText("Play");
+        jbtnPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPlayActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Stop");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -156,22 +177,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtnPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnPlay)
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -185,32 +210,73 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(painelDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbtnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPlayActionPerformed
+//        Frame frame = new Frame("Text Cube");
+//        painelDisplay.setLayout(new BorderLayout());
+        setCheckFaceValues();
+        GLCanvas canvas = new GLCanvas();
+        final CubeDraw demo = new CubeDraw();
+
+        canvas.addGLEventListener(demo);
+        painelDisplay.add(canvas, BorderLayout.CENTER);
+
+//        frame.setSize(512, 512);
+         animator = new Animator(canvas);
+//        painelDisplay.addWindowListener(new WindowAdapter() {
+//            public void windowClosing(WindowEvent e) {
+//                // Run this on another thread than the AWT event queue to
+//                // make sure the call to Animator.stop() completes before
+//                // exiting
+//                new Thread(new Runnable() {
+//                    public void run() {
+//                        animator.stop();
+//                        System.exit(0);
+//                    }
+//                }).start();
+//            }
+//        });
+        painelDisplay.show();
+        animator.start();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnPlayActionPerformed
+
+    private void jckTopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckTopActionPerformed
+           // TODO add your handling code here:
+    }//GEN-LAST:event_jckTopActionPerformed
+
+    private void jckfrontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckfrontActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jckfrontActionPerformed
+
+    private void jckbehindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckbehindActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jckbehindActionPerformed
+
+    private void jckbottomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckbottomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jckbottomActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new Thread(new Runnable() {
+                    public void run() {
+                        animator.stop();
+//                        System.exit(0);
+                    }
+                }).start();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
-
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    private void jckTopStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jckTopStateChanged
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jckTopStateChanged
 
     /**
      * @param args the command line arguments
@@ -249,16 +315,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton jbtnPlay;
+    private javax.swing.JCheckBox jckTop;
+    private javax.swing.JCheckBox jckbehind;
+    private javax.swing.JCheckBox jckbottom;
+    private javax.swing.JCheckBox jckfront;
+    private javax.swing.JCheckBox jckleft;
+    private javax.swing.JCheckBox jckright;
+    private javax.swing.JPanel painelDisplay;
     // End of variables declaration//GEN-END:variables
+
+    public static boolean facefront=true;
+    public static boolean faceback=true;
+    public static boolean faceleft=true;
+    public static boolean faceright=true;
+    public static boolean facebottom=true;
+    public static boolean facetop=true;
+    private Animator animator;
+
+    private void setCheckFaceValues() {
+        this.faceback=this.jckbehind.isSelected();
+        this.facefront=this.jckfront.isSelected();
+        this.facebottom=this.jckbottom.isSelected();
+        this.faceleft=this.jckleft.isSelected();
+        this.faceright=this.jckright.isSelected();
+        this.facetop=this.jckTop.isSelected();
+
+        
+    }
 }
