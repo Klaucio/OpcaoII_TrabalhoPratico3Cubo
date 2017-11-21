@@ -168,7 +168,7 @@ public class CubeDraw extends Demo {
         }
             gl.glPopMatrix();
 
-        fps.draw();
+        //fps.draw();
 
         time.update();
         xAng += 200 * (float) time.deltaT();
